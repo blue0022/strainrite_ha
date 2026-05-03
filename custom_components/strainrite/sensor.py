@@ -91,7 +91,7 @@ SENSORS: tuple[StrainriteSensorDescription, ...] = (
         key="alarm",
         name="Alarm",
         icon="mdi:alarm-light",
-        value_fn=_nonempty,
+        value_fn=lambda v: v if v else "None",
     ),
 )
 
