@@ -1,8 +1,8 @@
 # Strainrite Electric Fence — Home Assistant Integration
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
-[![hassfest](https://github.com/bret536/strainrite_ha/actions/workflows/hassfest.yaml/badge.svg)](https://github.com/bret536/strainrite_ha/actions/workflows/hassfest.yaml)
-[![validate](https://github.com/bret536/strainrite_ha/actions/workflows/validate.yaml/badge.svg)](https://github.com/bret536/strainrite_ha/actions/workflows/validate.yaml)
+[![hassfest](https://github.com/blue0022/strainrite_ha/actions/workflows/hassfest.yaml/badge.svg)](https://github.com/blue0022/strainrite_ha/actions/workflows/hassfest.yaml)
+[![validate](https://github.com/blue0022/strainrite_ha/actions/workflows/validate.yaml/badge.svg)](https://github.com/blue0022/strainrite_ha/actions/workflows/validate.yaml)
 
 Local integration for Strainrite WiFi/IP electric fence energizers (MB series). Provides arm/disarm control and full status monitoring via the device's built-in HTTP API — no cloud, no account required.
 
@@ -23,7 +23,7 @@ Local integration for Strainrite WiFi/IP electric fence energizers (MB series). 
 ### Via HACS (recommended)
 
 1. In HACS, go to **Integrations** → three-dot menu → **Custom repositories**
-2. Add `https://github.com/bret536/strainrite_ha` with category **Integration**
+2. Add `https://github.com/blue0022/strainrite_ha` with category **Integration**
 3. Install **Strainrite Electric Fence** and restart Home Assistant
 
 ### Manual
