@@ -1,0 +1,13 @@
+{
+  "domain": "strainrite",
+  "name": "Strainrite Electric Fence",
+  "version": "1.0.0",
+  "config_flow": true,
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "codeowners": ["@bret536"],
+  "documentation": "https://github.com/bret536/strainrite_ha",
+  "issue_tracker": "https://github.com/bret536/strainrite_ha/issues",
+  "requirements": [],
+  "dependencies": []
+}

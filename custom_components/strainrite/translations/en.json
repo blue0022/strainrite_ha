@@ -1,0 +1,19 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Strainrite Energizer",
+        "description": "Enter the IP address of your Strainrite WiFi energizer.",
+        "data": {
+          "host": "IP Address"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect. Check the IP address and that the device is online."
+    },
+    "abort": {
+      "already_configured": "This Strainrite device is already configured."
+    }
+  }
+}
