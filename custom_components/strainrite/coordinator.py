@@ -42,9 +42,19 @@ class StrainriteCoordinator(DataUpdateCoordinator[dict]):
                 self._url("data=values"), timeout=_TIMEOUT
             ) as resp:
                 resp.raise_for_status()
-                return await resp.json(content_type=None)
+                data = await resp.json(content_type=None)
         except aiohttp.ClientError as err:
             raise UpdateFailed(f"Cannot reach Strainrite at {self.host}: {err}") from err
+        except ValueError as err:
+            raise UpdateFailed(
+                f"Strainrite at {self.host} returned unparseable data: {err}"
+            ) from err
+
+        if not data or not data.get("armed"):
+            raise UpdateFailed(
+                f"Strainrite at {self.host} returned incomplete data (missing 'armed' field)"
+            )
+        return data
 
     async def async_send_command(self, cmd: str) -> None:
         try:
