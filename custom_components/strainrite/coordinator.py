@@ -60,7 +60,7 @@ class StrainriteCoordinator(DataUpdateCoordinator[dict]):
             self._was_ok = True
         self._success_count += 1
         self._last_success_kind = kind
-        self._last_success_body = body[:200]
+        self._last_success_body = body[:5000]
 
     def _note_failure(self) -> None:
         if self._was_ok:
