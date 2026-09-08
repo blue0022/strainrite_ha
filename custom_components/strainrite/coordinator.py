@@ -15,12 +15,6 @@ _LOGGER = logging.getLogger(__name__)
 
 _TIMEOUT = aiohttp.ClientTimeout(total=10)
 
-# The device's embedded backend.njs endpoint is a minimal reverse-engineered
-# HTTP server with no known support for concurrent connections or HTTP
-# keep-alive; force a full close per request and never let two requests
-# overlap, to avoid leaving unread/lingering connections on its side.
-_HEADERS = {"Connection": "close"}
-
 
 class StrainriteCoordinator(DataUpdateCoordinator[dict]):
     def __init__(
@@ -81,7 +75,7 @@ class StrainriteCoordinator(DataUpdateCoordinator[dict]):
         async with self._request_lock:
             try:
                 async with self._session.get(
-                    self._url("data=values"), timeout=_TIMEOUT, headers=_HEADERS
+                    self._url("data=values"), timeout=_TIMEOUT
                 ) as resp:
                     resp.raise_for_status()
                     data = await resp.json(content_type=None)
@@ -106,7 +100,7 @@ class StrainriteCoordinator(DataUpdateCoordinator[dict]):
         async with self._request_lock:
             try:
                 async with self._session.get(
-                    self._url(f"cmd={cmd}"), timeout=_TIMEOUT, headers=_HEADERS
+                    self._url(f"cmd={cmd}"), timeout=_TIMEOUT
                 ) as resp:
                     resp.raise_for_status()
                     body = await resp.read()
