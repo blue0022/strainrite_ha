@@ -98,7 +98,7 @@ class StrainriteCoordinator(DataUpdateCoordinator[dict]):
                         f"Strainrite at {self.host} returned unparseable data: {err}"
                     ) from err
 
-            if not data or not data.get("armed"):
+            if not isinstance(data, dict) or not data.get("armed"):
                 raise UpdateFailed(
                     f"Strainrite at {self.host} returned incomplete data (missing 'armed' field)"
                 )
