@@ -60,8 +60,19 @@ Once the integration is set up:
 2. The fence switch will appear in Apple Home as a switch accessory
 3. Control with Siri: *"Hey Siri, turn on/off the fence"*
 
+## Known Issues
+
+With WiFi module firmware 2.22, the device's local web server has been observed to work normally
+for a period and then stop returning real data — every `backend.njs` endpoint returns an empty
+response. Once this happens, the Strainrite unit needs to be power-cycled to restore normal operation.
+This is a device-side issue, not a bug in this integration. This issue has not been observed on WiFi
+module firmware 2.28.
+
+To check your WiFi module version, query `http://<energizer-ip>/backend.njs?data=values` directly (e.g.
+in a browser or via `curl`) and look for the `"WiVer"` field in the JSON response.
+
 ## Notes
 
 - The device's HTTP API requires no authentication on the local network
 - The integration uses `local_polling` — ensure the energizer has a static/reserved IP
-- Tested on Strainrite MB8 (firmware 1v27, WiFi module 2.22)
+- Tested on Strainrite MB8 (firmware 1v27, WiFi module 2.28)
